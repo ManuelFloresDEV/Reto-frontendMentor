@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Popping";
+}
+$bordercolor: (
+    "supervisor":4px solid hsl(180, 62%, 55%),
+    "team": 4px solid hsl(0, 78%, 62%),
+    "karma":  4px solid hsl(34, 97%, 64%),
+    "calculator":  4px solid hsl(212, 86%, 64%),
+    );
+    @each $valor, $color in $bordercolor {
+        .content__card--#{$valor}{
+            border-top: $color; 
+        }
+
+    }
+$img: (
+    "supervisor": url(../images/icon-supervisor.svg),
+    "team": url(../images/icon-team-builder.svg),
+    "karma": url(../images/icon-karma.svg),
+    "calculator":  url(../images/icon-calculator.svg),
+    );
+    @each $activ, $image in $img {
+        .content__card--#{$activ}{
+            background-image: $image;
+            background-repeat: no-repeat;
+            background-position-x: 14rem;
+            background-position-y: 8rem;
+
+        }
+    }
+@mixin defaulbox {
+    width: 311px;
+    height: 219px;
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: white;
+    
+}
+
+
+body {
+    padding: 9px;
+    background-color: #e8e8e8;
+    font-family: "Popping";
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    &__card {
+        @include defaulbox();
+        margin-bottom: 1.6rem;
+    }
+}
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 100;
+    opacity: .7;    
+    margin-bottom: 1rem;
+}
+#bio {
+    font-size: px;
+}
+h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    opacity: .8;
+}
+p {
+    font-size: 15px;
+    font-weight: lighter;
+    opacity: .5;
+}
+#bio {
+    text-align: center;
+    font-size: 25px;
+}
+
+@media only screen and (min-width:1440px) {
+    #wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .content{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    } 
+}
